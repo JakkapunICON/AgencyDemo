@@ -1,7 +1,7 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 // material-ui
-import { Box, Typography, AppBar, Toolbar, Button, CardMedia, useTheme } from '@mui/material';
+import { Box, Typography, AppBar, Toolbar, Button, CardMedia } from '@mui/material';
 import { Add as AddIcon, Search as SearchIcon } from '@mui/icons-material';
 
 // custum style import
@@ -10,9 +10,12 @@ import { ButtonMenu, Search, SearchIconWrapper, StyledInputBase } from '../../..
 // project import
 import logoIconframework from '../../../images/logo/logoIconframework.png';
 import { HEADER_MENU } from '../../../data/header-menu';
+import { useState, useEffect } from 'react';
 
 export default function HeaderMenu() {
-    const theme = useTheme();
+    const location = useLocation();
+    useEffect(() => {}, [location.pathname]);
+
     return (
         <AppBar component="nav" sx={{ boxShadow: 0, pr: 2, pl: 4 }}>
             <Toolbar variant="dense">
@@ -26,10 +29,14 @@ export default function HeaderMenu() {
                 <Box sx={{ flexGrow: 1 }} />
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {HEADER_MENU.map((item) => (
-                        <ButtonMenu variant="text" component={RouterLink} to={item.href} key={item.id}>
-                            <Typography noWrap variant="text16">
-                                {item.title}
-                            </Typography>
+                        <ButtonMenu
+                            variant="text16"
+                            active={window.location.pathname === item.href ? 'true' : 'false'}
+                            component={RouterLink}
+                            to={item.href}
+                            key={item.id}
+                        >
+                            {item.title}
                         </ButtonMenu>
                     ))}
                     <Button
