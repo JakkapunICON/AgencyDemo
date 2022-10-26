@@ -3,8 +3,11 @@ import { Navigate } from 'react-router-dom';
 // project import
 import HomePage from '../pages/HomePage';
 import ContactPage from '../pages/ContactPage';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
+import PreownedPage from '../pages/Pre-ownedPage';
+import RentPage from '../pages/RentPage';
+import AboutPage from '../pages/AboutPage';
+import LoginPage from '../pages/auth/LoginPage';
+import RegisterPage from '../pages/auth/RegisterPage';
 
 export const MAIN_ROUTER = [
     {
@@ -15,8 +18,20 @@ export const MAIN_ROUTER = [
         path: '/home',
         element: <Navigate to="/" />
     },
+
     {
-        id: 1,
+        path: '/pre-owned',
+        element: <PreownedPage />
+    },
+    {
+        path: '/rent',
+        element: <RentPage />
+    },
+    {
+        path: '/about',
+        element: <AboutPage />
+    },
+    {
         path: '/contact',
         element: <ContactPage />
     }

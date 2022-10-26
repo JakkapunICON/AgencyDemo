@@ -7,6 +7,7 @@ import {
     Settings as SettingsIcon,
     ExpandMore as ExpandMoreIcon
 } from '@mui/icons-material';
+import Language from './Language';
 
 function HeaderTop() {
     return (
@@ -32,21 +33,7 @@ function HeaderTop() {
                     <IconButton size="large" aria-label="setting of current user" color="secondary">
                         <SettingsIcon />
                     </IconButton>
-                    <>
-                        <ButtonGroup variant="text" aria-label="text button group">
-                            <Button>
-                                <Typography variant="buttonGroup" color="secondary" sx={{ fontWeight: 700 }}>
-                                    TH
-                                </Typography>
-                            </Button>
-                            <Button>
-                                <Typography variant="buttonGroup">EN</Typography>
-                            </Button>
-                            <Button>
-                                <Typography variant="buttonGroup">CH</Typography>
-                            </Button>
-                        </ButtonGroup>
-                    </>
+                    <Language />
                 </Box>
             </ToolbarStyle>
         </AppBar>

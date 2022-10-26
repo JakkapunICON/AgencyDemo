@@ -9,7 +9,7 @@ const bottomStyleAfter = (theme, active) => {
         height: '3px',
         borderRadius: '50px',
         width: active === 'true' ? '100%' : 0,
-        left: 1,
+        left: 0,
         bottom: '-6px',
         transition: '0.25s'
     };
@@ -41,13 +41,15 @@ export const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: '10px',
     backgroundColor: theme.palette.white.main,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(3),
     border: '1.5px solid #E0E0E0',
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto'
+    marginLeft: theme.spacing(3),
+    width: '40%',
+    [theme.breakpoints.down('lg')]: {
+        width: '438px'
+    },
+    [theme.breakpoints.down('md')]: {
+        width: '100%'
     }
 }));
 
@@ -64,6 +66,13 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    width: '100%',
+    [theme.breakpoints.down('lg')]: {
+        width: '438px'
+    },
+    [theme.breakpoints.down('md')]: {
+        width: '100%'
+    },
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         marginRight: '50px',
@@ -71,7 +80,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
         paddingLeft: `calc(1em + ${theme.spacing(1)})`,
         transition: theme.transitions.create('width'),
         height: '28px',
-        width: '48ch',
+        // width: `calc(400px + 1000px)`,
         color: '#9E9E9E',
         fontSize: '16px',
         lineHeight: '22px'

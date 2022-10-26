@@ -21,7 +21,7 @@ export const ContainerLayout = styled(Container)(({ theme }) => ({
     }
 }));
 
-export const HeaderStyle = styled(Box)(() => ({
+export const HeaderStyle = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column'
     // height: 127
